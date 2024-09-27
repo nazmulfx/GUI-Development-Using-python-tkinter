@@ -7,7 +7,7 @@ class NLPApp:
         # login GUI Load
         self.root = Tk()
         self.root.title("NLP App")
-        # self.root.iconbitmap("resources/favicon.ico") #icon
+        self.root.iconbitmap("resources/favicon.ico") #icon
         self.root.geometry("500x500")
         self.root.config(bg="lightgray")
         
