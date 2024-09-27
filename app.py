@@ -43,7 +43,7 @@ class NLPApp:
         # register page ref
         label3 = Label(self.root, text="Not registered yet? Register here...")
         label3.pack(pady=(30, 10))
-        button = Button(self.root, "Register")
-        button.pack()
+        register_button = Button(self.root, text="Register")
+        register_button.pack()
         
 nlp = NLPApp()
