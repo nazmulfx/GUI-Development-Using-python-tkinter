@@ -128,7 +128,43 @@ class NLPApp:
         # response from db
         if response:
             messagebox.showinfo("success", "Login successful")
+            self.home()
         else:
             messagebox.showerror("error", "Incorrect username or password.")
+            
+    def home(self):
+        self.gui_clear()
+        
+        # Adding Header top of the App
+        header = Label(self.root, text="NLP APP", bg="lightgray", fg="BLUE")
+        header.pack(pady=(30, 30))
+        header.config(font=("vardana", 24, "bold"))
+        
+        # Sentiment Analysis
+        sentiment_btn = Button(self.root, text="Sentiment Analysis", width=30, height=2, command=self.sentiment_analysis)
+        sentiment_btn.pack(pady=(10, 10))
+        
+        # Name Entity Recognition
+        ner_btn = Button(self.root, text="Name Entity Recognition", width=30, height=2, command=self.name_entity_recognition)
+        ner_btn.pack(pady=(10, 10))
+        
+        # Emotion Prediction
+        emotion_btn = Button(self.root, text="Emotion Analysis", width=30, height=2, command=self.emotion_prediction)
+        emotion_btn.pack(pady=(10, 10))
+        
+        
+        # logout button
+        logout_btn = Button(self.root, text="logout", width=30, height=2, command=self.login)
+        logout_btn.pack(pady=(30, 10))
+        
+    
+    def sentiment_analysis(self):
+        pass
+    
+    def name_entity_recognition(self):
+        pass
+    
+    def emotion_prediction(self):
+        pass
         
 nlp = NLPApp()
