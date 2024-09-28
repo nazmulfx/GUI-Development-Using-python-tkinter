@@ -33,17 +33,30 @@ class NLPApp:
         # password
         label2 = Label(self.root, text="Enter your password")
         label2.pack(pady=(10, 10))
-        self.password = Entry(self.root, width=50)
+        self.password = Entry(self.root, width=50, show="*")
         self.password.pack(pady=(10, 10), ipady=5)
         
         #submit button
-        button = Button(self.root, text="Login")
-        button.pack(pady=(10, 10))
+        login_button = Button(self.root, text="Login", width=30, height=2)
+        login_button.pack(pady=(10, 10))
         
         # register page ref
         label3 = Label(self.root, text="Not registered yet? Register here...")
         label3.pack(pady=(30, 10))
-        register_button = Button(self.root, text="Register")
+        register_button = Button(self.root, text="Register", width=30, height=2, command= self.register())  # when button clicked go to register gui
         register_button.pack()
+        
+    def register(self):
+        print("Register Page") # checking in terminal button clicked or not
+        
+        # clearing GUI first
+        self.gui_clear()
+        
+
+    def gui_clear(self):
+        
+        # looping through all packs and removing one by one from existing GUI
+        for pack in self.root.pack_slaves():
+            pack.destroy()
         
 nlp = NLPApp()
