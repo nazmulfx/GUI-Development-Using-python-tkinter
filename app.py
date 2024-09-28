@@ -43,7 +43,7 @@ class NLPApp:
         # register page ref
         label3 = Label(self.root, text="Not registered yet? Register here...")
         label3.pack(pady=(30, 10))
-        register_button = Button(self.root, text="Register", width=30, height=2, command= self.register())  # when button clicked go to register gui
+        register_button = Button(self.root, text="Register", width=30, height=2, command=self.register)  # when button clicked go to register gui
         register_button.pack()
         
     def register(self):
@@ -52,11 +52,46 @@ class NLPApp:
         # clearing GUI first
         self.gui_clear()
         
+        
+        # Adding Header top of the App
+        header = Label(self.root, text="NLP APP", bg="lightgray", fg="BLUE")
+        header.pack(pady=(30, 30))
+        header.config(font=("vardana", 24, "bold"))
+        
+        # Name
+        label = Label(self.root, text="Enter your name")
+        label.pack(pady=(10, 10))
+        self.name = Entry(self.root, width=50)
+        self.name.pack(pady=(10, 10), ipady=4)
+        
+        # email
+        label1 = Label(self.root, text="Enter your Email")
+        label1.pack(pady=(10, 10))
+        self.email = Entry(self.root, width=50)
+        self.email.pack(pady=(10, 10), ipady=4)
+        
+        # password
+        label2 = Label(self.root, text="Enter your password")
+        label2.pack(pady=(10, 10))
+        self.password = Entry(self.root, width=50, show="*")
+        self.password.pack(pady=(10, 10), ipady=5)
+        
+        # Register button
+        register_btn = Button(self.root, text="Register", width=30, height=2)
+        register_btn.pack(pady=(10, 10))
+        
+        # Login page ref
+        label3 = Label(self.root, text="Already Registered? Login...")
+        label3.pack(pady=(30, 10))
+        login_btn = Button(self.root, text="Login", width=30, height=2, command=self.login)  # when button clicked go to register gui
+        login_btn.pack()
+        
 
     def gui_clear(self):
         
         # looping through all packs and removing one by one from existing GUI
         for pack in self.root.pack_slaves():
+            print(pack)
             pack.destroy()
         
 nlp = NLPApp()
