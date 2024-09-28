@@ -43,7 +43,7 @@ class NLPApp:
         self.password.pack(pady=(10, 10), ipady=5)
         
         #submit button
-        login_button = Button(self.root, text="Login", width=30, height=2)
+        login_button = Button(self.root, text="Login", width=30, height=2, command=self.perform_login)
         login_button.pack(pady=(10, 10))
         
         # register page ref
@@ -116,5 +116,19 @@ class NLPApp:
         else:
             # print("Email already exists.")
             messagebox.showerror("error", "Email already exist. Try with another email")
+    
+    def perform_login(self):
+        
+        # Fetch data from GUI
+        email = self.email.get()
+        password = self.password.get()
+        
+        response = self.db.check_data_to_db(email, password)
+        
+        # response from db
+        if response:
+            messagebox.showinfo("success", "Login successful")
+        else:
+            messagebox.showerror("error", "Incorrect username or password.")
         
 nlp = NLPApp()
