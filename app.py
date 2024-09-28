@@ -1,8 +1,11 @@
 from tkinter import *
+from mydb import Database
 
 class NLPApp:
     
     def __init__(self):
+        #create db object
+        self.db = Database()
         
         # login GUI Load
         self.root = Tk()
@@ -79,7 +82,7 @@ class NLPApp:
         self.password.pack(pady=(10, 10), ipady=5)
         
         # Register button
-        register_btn = Button(self.root, text="Register", width=30, height=2)
+        register_btn = Button(self.root, text="Register", width=30, height=2, command=self.perform_registration)
         register_btn.pack(pady=(10, 10))
         
         # Login page ref
@@ -93,7 +96,22 @@ class NLPApp:
         
         # looping through all packs and removing one by one from existing GUI
         for pack in self.root.pack_slaves():
-            print(pack)
+            # print(pack)
             pack.destroy()
+            
+    def perform_registration(self):
+        
+        # Fetch data from GUI
+        name = self.name.get()
+        email = self.email.get()
+        password = self.password.get()
+        
+        response = self.db.add_data_to_db(name, email, password)
+        
+        # response from db
+        if response:
+            print("Registration Successful")
+        else:
+            print("Email already exists.")
         
 nlp = NLPApp()
