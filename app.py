@@ -1,5 +1,6 @@
 from tkinter import *
 from mydb import Database
+from tkinter import messagebox
 
 class NLPApp:
     
@@ -110,8 +111,10 @@ class NLPApp:
         
         # response from db
         if response:
-            print("Registration Successful")
+            # print("Registration Successful")
+            messagebox.showinfo("success", "Registration Successful! You can now login.")
         else:
-            print("Email already exists.")
+            # print("Email already exists.")
+            messagebox.showerror("error", "Email already exist. Try with another email")
         
 nlp = NLPApp()
