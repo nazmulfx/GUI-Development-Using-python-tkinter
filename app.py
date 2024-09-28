@@ -18,6 +18,8 @@ class NLPApp:
         self.root.mainloop()    # holding GUI in the screen
         
     def login(self):
+        # clearing gui first
+        self.gui_clear()
         
         # Adding Header top of the App
         header = Label(self.root, text="NLP APP", bg="lightgray", fg="BLUE")
